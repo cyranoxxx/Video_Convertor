@@ -6,7 +6,6 @@ import whisper
 from deep_translator import GoogleTranslator
 from gtts import gTTS
 from moviepy.editor import VideoFileClip, AudioFileClip
-from moviepy.audio.fx import speedx
 import logging
 
 # Logging ayarları
@@ -121,7 +120,8 @@ class VideoTranslator:
                 # Ses hızlandırılarak video süresine eşitleniyor
                 speed_factor = audio.duration / video.duration
                 logger.warning(f"Ses dosyası videodan uzun, {speed_factor:.2f}x hızlandırılacak")
-                audio = audio.fx(speedx, speed_factor)
+                # MoviePy'da speedx direkt audio üzerinde çağrılır
+                audio = audio.fx(lambda clip: clip.speedx(speed_factor))
             
             final_video = video.set_audio(audio)
             final_video.write_videofile(
