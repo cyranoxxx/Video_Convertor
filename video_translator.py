@@ -120,8 +120,8 @@ class VideoTranslator:
                 # Ses hızlandırılarak video süresine eşitleniyor
                 speed_factor = audio.duration / video.duration
                 logger.warning(f"Ses dosyası videodan uzun, {speed_factor:.2f}x hızlandırılacak")
-                # MoviePy'da speedx direkt audio üzerinde çağrılır
-                audio = audio.fx(lambda clip: clip.speedx(speed_factor))
+                # Ses hızını artır (duration'ı azalt)
+                audio = audio.fl_time(lambda t: t * speed_factor, apply_to=['audio']).set_duration(video.duration)
             
             final_video = video.set_audio(audio)
             final_video.write_videofile(
