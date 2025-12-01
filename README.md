@@ -1,121 +1,202 @@
-# Video Ses Çevirici - Türkçe
+# 🎬 Video Ses Çevirici - Türkçe
 
-Bu program, video dosyalarınızın seslerini otomatik olarak Türkçe'ye çevirir.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)
 
-## Özellikler
+Videoların sesini otomatik olarak Türkçe'ye çeviren akıllı Python uygulaması. Whisper AI ile ses tanıma, Google Translate ile çeviri ve Google TTS ile doğal Türkçe ses sentezi.
 
-- 🎥 Video dosyasından sesi çıkarır
-- 🎤 Sesi metne dönüştürür (Speech-to-Text)
-- 🌍 Metni Türkçe'ye çevirir
-- 🔊 Türkçe metni sese dönüştürür (Text-to-Speech)
-- 🎬 Yeni sesi video ile birleştirir
+## ✨ Özellikler
 
-## Desteklenen Video Formatları
+- 🎤 **Ses Tanıma**: OpenAI Whisper ile yüksek kaliteli ses tanıma
+- 🌍 **Otomatik Dil Algılama**: Herhangi bir dilden Türkçe'ye çeviri
+- 🔊 **Doğal Ses Sentezi**: Google TTS ile Türkçe ses oluşturma
+- 🎬 **Video Birleştirme**: Yeni sesi orijinal video ile otomatik birleştirme
+- 📁 **Toplu İşlem**: Birden fazla videoyu tek seferde işleme
+- 🚀 **Kolay Kurulum**: Otomatik kurulum scriptleri
 
-- MP4
-- AVI
-- MOV
-- MKV
-- FLV
-- WMV
-- WEBM
+## 📹 Desteklenen Video Formatları
 
-## Kurulum
+MP4, AVI, MOV, MKV, FLV, WMV, WEBM, TS
 
-### 1. FFmpeg'i yükleyin (Gerekli!)
+---
 
-**Yöntem 1: Otomatik Kurulum (Önerilen - Kolay)**
+## 🚀 Hızlı Başlangıç
 
-`ffmpeg_kur.bat` dosyasını çift tıklayın. Bu dosya:
-- FFmpeg'i otomatik olarak indirir
-- Doğru konuma kurar
-- PATH'e otomatik ekler
+### ⚠️ ÖNEMLİ NOT
 
-**Yöntem 2: Manuel Kurulum**
+Program **`Video_Convertor`** klasörünün içinde çalışır. Tüm işlemleri bu klasör içerisinden yapmalısınız.
 
-1. [FFmpeg İndir](https://www.gyan.dev/ffmpeg/builds/)
-2. `ffmpeg-release-essentials.zip` dosyasını indirin
-3. Zip dosyasını `C:\ffmpeg` konumuna açın
-4. `C:\ffmpeg\bin` klasörünü Windows PATH'e ekleyin:
-   - Windows Ayarlar → Sistem → Hakkında → Gelişmiş sistem ayarları
-   - Çevre Değişkenleri → User variables → Path → Düzenle
-   - Yeni → `C:\ffmpeg\bin` ekleyin
-   - Tamam'a basın
+### 📋 Adım 1: İlk Kurulum (Sadece Bir Kez)
 
-**Kurulumu test edin:**
-Yeni bir PowerShell penceresi açın ve şunu yazın:
-```bash
-ffmpeg -version
+1. **`Video_Convertor`** klasörüne gidin
+2. **`01_ONCE_BU_DOSYAYI_CALISTIR.bat`** dosyasını çift tıklayın
+   
+   Bu dosya otomatik olarak:
+   - ✅ FFmpeg'i indirecek ve kuracak
+   - ✅ Gerekli Python paketlerini yükleyecek
+   - ✅ Her şeyi hazır hale getirecek
+
+   ⏱️ Kurulum 5-10 dakika sürebilir.
+
+### 📥 Adım 2: Videoları Ekleme
+
+1. Çevirmek istediğiniz videoları **`input`** klasörüne kopyalayın
+2. Birden fazla video ekleyebilirsiniz (hepsi işlenecek)
+
+**Desteklenen formatlar:** MP4, AVI, MOV, MKV, FLV, WMV, WEBM, TS
+
+### ▶️ Adım 3: Çeviriyi Başlatma
+
+1. **`calistir.bat`** dosyasını çift tıklayın
+2. Program otomatik olarak:
+   - ✅ `input` klasöründeki tüm videoları bulacak
+   - ✅ Her videonun sesini çıkaracak
+   - ✅ Sesi metne dönüştürecek
+   - ✅ Metni Türkçe'ye çevirecek
+   - ✅ Türkçe metni sese dönüştürecek
+   - ✅ Yeni sesi videoya ekleyecek
+   - ✅ İşlenmiş videoları **`output`** klasörüne kaydedecek
+
+### ✅ Adım 4: Sonuçları Alma
+
+İşlem tamamlandığında:
+- İşlenmiş videolar **`output`** klasöründe olacak
+- Dosya adları: `orijinal_isim_turkish.mp4`
+- Orijinal videolar **`input`** klasöründe değişmeden kalacak
+
+---
+
+## 📂 Klasör Yapısı
+
+```
+Video_Convertor/
+│
+├── input/                           ← 🎬 Yabancı dildeki videoları BURAYA koyun
+│   ├── video1.mp4
+│   ├── video2.avi
+│   └── BURAYA_VIDEO_KOYUN.txt
+│
+├── output/                          ← ✅ İşlenmiş videolar BURADAN çıkar
+│   ├── video1_turkish.mp4
+│   └── video2_turkish.avi
+│
+├── temp/                            ← 🔧 Geçici dosyalar (otomatik temizlenir)
+│
+├── 01_ONCE_BU_DOSYAYI_CALISTIR.bat  ← 1️⃣ İlk kurulum
+├── calistir.bat                     ← 2️⃣ Videoları çevir
+├── video_translator.py              ← Ana program
+├── requirements.txt                 ← Python bağımlılıkları
+└── README.md                        ← Bu dosya
 ```
 
-Eğer FFmpeg versiyonu görünüyorsa, kurulum başarılı! ✓
+---
 
-### 2. Python paketlerini yükleyin
+## 🔧 Sistem Gereksinimleri
 
-**Önemli:** Eski googletrans paketini kaldırıp yeni paketleri yükleyin:
+- **İşletim Sistemi**: Windows 10 veya üstü
+- **Python**: 3.8 veya üstü
+- **İnternet**: Gerekli (çeviri ve model indirme için)
+- **Disk Alanı**: En az 2 GB (Whisper modeli için)
 
-```bash
-pip uninstall -y googletrans
-pip install --upgrade -r requirements.txt
+---
+
+## 💡 Örnek Kullanım
+
+```
+1. Video_Convertor klasörüne git
+2. İlk kez kullanıyorsan → 01_ONCE_BU_DOSYAYI_CALISTIR.bat
+3. video1.mp4 ve video2.avi dosyalarını input/ klasörüne kopyala
+4. calistir.bat dosyasını çalıştır
+5. İşlem bitince output/ klasöründen al:
+   - video1_turkish.mp4
+   - video2_turkish.avi
 ```
 
-Bu komut:
-- Eski ve sorunlu `googletrans` paketini kaldırır
-- Daha stabil `deep-translator` paketini yükler
-- Tüm paket uyumsuzluklarını çözer
+---
 
-**Not:** İlk çalıştırmada Whisper modeli otomatik olarak indirilecektir (~140MB).
+## 🌍 Desteklenen Diller
 
-## Kullanım
+**Kaynak Diller** (Otomatik algılama):
+- İngilizce, Almanca, Fransızca, İspanyolca, İtalyanca
+- Rusça, Japonca, Çince, Korece, Arapça
+- Ve 90+ dil daha!
 
-### Mevcut klasördeki tüm videoları çevir:
+**Hedef Dil**:
+- 🇹🇷 Türkçe (sabit)
 
-```bash
-python video_translator.py
-```
+---
 
-### Belirli bir klasördeki videoları çevir:
+## ⚙️ Program Nasıl Çalışır?
 
-```bash
-python video_translator.py "C:\Videolarım"
-```
+1. **Ses Çıkarma**: Video dosyasından ses çıkarılır
+2. **Ses Tanıma**: OpenAI Whisper ile ses metne dönüştürülür
+3. **Çeviri**: Google Translate ile metin Türkçe'ye çevrilir
+4. **Ses Sentezi**: Google TTS ile Türkçe metin sese dönüştürülür
+5. **Birleştirme**: Yeni Türkçe ses orijinal video ile birleştirilir
 
-## Çıktı
+---
 
-- İşlenmiş videolar **`output`** klasörüne kaydedilir
-- Geçici dosyalar **`temp`** klasörüne kaydedilir (otomatik temizlenir)
-- Orijinal dosyalar **`input`** klasöründe değiştirilmez
+## 📖 Detaylı Dokümantasyon
 
-## Örnek Kullanım
+- **Hızlı Başlangıç**: [BASLANGIC.md](BASLANGIC.md)
+- **Sorun Giderme**: [ONEMLI_OKUYUN.txt](ONEMLI_OKUYUN.txt)
+- **Git Yükleme**: [GIT_YUKLEME_REHBERI.md](GIT_YUKLEME_REHBERI.md)
 
-1. Video dosyalarınızı **`input`** klasörüne kopyalayın
-2. Terminalde şu komutu çalıştırın:
-   ```bash
-   python video_translator.py
-   ```
-3. Program işlemi tamamladığında, çevrilmiş videolar **`output`** klasöründe olacak
+---
 
-## Notlar
+## ❓ Sık Sorulan Sorular
 
-- İşlem video uzunluğuna göre biraz zaman alabilir
-- İnternet bağlantısı gereklidir (çeviri ve TTS için)
-- Whisper modeli ilk çalıştırmada indirilir (~140MB)
-- Ses kalitesi ve çeviri doğruluğu, orijinal ses kalitesine bağlıdır
+**S: Video kalitesi düşüyor mu?**  
+C: Hayır, orijinal video kalitesi korunur. Sadece ses değiştirilir.
 
-## Sorun Giderme
+**S: İşlem ne kadar sürer?**  
+C: Video uzunluğuna bağlı. 10 dakikalık bir video yaklaşık 3-5 dakika sürebilir.
+
+**S: İnternet bağlantısı şart mı?**  
+C: Evet, çeviri ve ilk kurulum için internet gerekli.
+
+**S: Hangi dilleri destekliyor?**  
+C: Herhangi bir dilden Türkçe'ye çeviri yapar.
+
+---
+
+## 🐛 Sorun Giderme
 
 ### "FFmpeg bulunamadı" hatası:
-- FFmpeg'in kurulu olduğundan ve PATH'e eklendiğinden emin olun
-- Terminali kapatıp yeniden açın
+```bash
+# Çözüm: ffmpeg_kur.bat çalıştır veya terminali kapat ve yeni terminal aç
+```
 
-### "Model indirme hatası":
-- İnternet bağlantınızı kontrol edin
-- Firewall ayarlarınızı kontrol edin
+### "Module not found" hatası:
+```bash
+pip install --no-cache-dir -r requirements.txt
+```
 
-### "Çeviri hatası":
-- İnternet bağlantınızı kontrol edin
-- Daha sonra tekrar deneyin (Google Translate API limiti)
+---
 
-## Lisans
+## 📝 Lisans
 
-MIT License
+Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
+
+---
+
+## 🙏 Teşekkürler
+
+- [OpenAI Whisper](https://github.com/openai/whisper) - Ses tanıma
+- [deep-translator](https://github.com/nidhaloff/deep-translator) - Çeviri
+- [gTTS](https://github.com/pndurette/gTTS) - Ses sentezi
+- [MoviePy](https://github.com/Zulko/moviepy) - Video işleme
+
+---
+
+## 📧 İletişim & Destek
+
+- **Issues**: [GitHub Issues](https://github.com/cyranoxxx/Video_Convertor/issues)
+- **Repository**: [Video_Convertor](https://github.com/cyranoxxx/Video_Convertor)
+
+---
+
+⭐ Projeyi beğendiyseniz yıldız vermeyi unutmayın!
+
+**İyi kullanımlar!** 🎉
