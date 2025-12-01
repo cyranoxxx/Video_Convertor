@@ -1,0 +1,9 @@
+Bu klasöre çevirmek istediğiniz videoları koyun.
+
+Desteklenen formatlar:
+- MP4, AVI, MOV, MKV, FLV, WMV, WEBM, TS
+
+Program çalıştığında bu klasördeki tüm videoları işleyecek
+ve çıktıları 'output' klasörüne kaydedecektir.
+
+Orijinal dosyalarınız değiştirilmeyecektir.

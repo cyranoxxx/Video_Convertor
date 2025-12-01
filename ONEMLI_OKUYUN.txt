@@ -1,0 +1,59 @@
+═══════════════════════════════════════════════════════════════
+    VİDEO SES ÇEVİRİCİ - TÜRKÇE
+═══════════════════════════════════════════════════════════════
+
+Bu klasörde videoların sesini otomatik olarak Türkçe'ye çeviren 
+bir program bulunmaktadır.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ HIZLI BAŞLANGIÇ (3 ADIM)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  ÇİFT TIKLA → 01_ONCE_BU_DOSYAYI_CALISTIR.bat
+   (İlk kurulum - sadece bir kez)
+
+2️⃣  Video dosyalarını 'input' klasörüne kopyala
+
+3️⃣  ÇİFT TIKLA → calistir.bat
+   (Videoları çevir)
+
+═══════════════════════════════════════════════════════════════
+
+ÇIKTI KLASÖRÜ:
+  input\   → Yabancı dildeki videoları buraya koyun
+  output\  → İşlenmiş videolar burada olacak
+
+DESTEKLENEN FORMATLAR:
+  MP4, AVI, MOV, MKV, FLV, WMV, WEBM, TS
+
+GEREKSINIMLER:
+  ✓ Python 3.8 veya üstü
+  ✓ İnternet bağlantısı (çeviri için)
+  ✓ FFmpeg (otomatik kurulacak)
+
+═══════════════════════════════════════════════════════════════
+
+SORUN GİDERME:
+
+❌ "FFmpeg bulunamadı" hatası:
+   → ffmpeg_kur.bat dosyasını çalıştır
+   → Tüm terminalleri kapat ve YENİ terminal aç
+   → Tekrar dene
+
+❌ Paket hatası:
+   → PowerShell'i YÖNETİCİ olarak aç
+   → pip install --upgrade pip
+   → 01_ONCE_BU_DOSYAYI_CALISTIR.bat tekrar çalıştır
+
+❌ "Module not found" hatası:
+   → pip install --no-cache-dir -r requirements.txt
+
+═══════════════════════════════════════════════════════════════
+
+DETAYLI DOKÜMANTASYON:
+  • BASLANGIC.md  → Hızlı kılavuz
+  • README.md     → Tam dokümantasyon
+
+═══════════════════════════════════════════════════════════════
+
+İyi kullanımlar! 🎉

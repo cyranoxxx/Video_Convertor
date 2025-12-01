@@ -1,0 +1,24 @@
+# Video işleme
+moviepy==1.0.3
+imageio-ffmpeg>=0.4.9
+
+# Ses tanıma (Speech-to-Text)
+openai-whisper>=20231117
+
+# Çeviri (googletrans yerine daha stabil alternatif)
+deep-translator==1.11.4
+
+# Ses sentezi (Text-to-Speech)
+gTTS==2.5.0
+
+# Yardımcı kütüphaneler
+ffmpeg-python==0.2.0
+pydub==0.25.1
+
+# Uyumluluk için gerekli paketler
+httpx>=0.23.0
+# Transformers ve torch versiyonlarını spacy-transformers ile uyumlu tutuyoruz
+transformers>=4.40.0,<4.50.0
+torch>=2.0.0,<2.6.0
+torchaudio>=2.0.0,<2.6.0
+torchvision>=0.15.0,<0.21.0
