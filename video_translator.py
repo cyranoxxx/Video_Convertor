@@ -6,6 +6,7 @@ import whisper
 from deep_translator import GoogleTranslator
 from gtts import gTTS
 from moviepy.editor import VideoFileClip, AudioFileClip
+from moviepy.audio.fx import speedx
 import logging
 
 # Logging ayarları
@@ -117,8 +118,10 @@ class VideoTranslator:
             if audio.duration < video.duration:
                 logger.warning("Ses dosyası videodan kısa, boşluk eklenecek")
             elif audio.duration > video.duration:
-                logger.warning("Ses dosyası videodan uzun, kırpılacak")
-                audio = audio.subclip(0, video.duration)
+                # Ses hızlandırılarak video süresine eşitleniyor
+                speed_factor = audio.duration / video.duration
+                logger.warning(f"Ses dosyası videodan uzun, {speed_factor:.2f}x hızlandırılacak")
+                audio = audio.fx(speedx, speed_factor)
             
             final_video = video.set_audio(audio)
             final_video.write_videofile(
